@@ -41,6 +41,12 @@ class Interface {
     }
 
     getResultsCoin(result, money, coin) {
+        const resultBefore = document.querySelector('#resultado > div')
+
+        if (resultBefore) {
+            resultBefore.remove()
+        }
+
         console.log(result[coin][money])
         const dataCoin = result[coin][money]
         let html = `
@@ -55,6 +61,18 @@ class Interface {
                 </div>
             </div>
         `
-        document.querySelector('#resultado').innerHTML = html
+
+        this._spinner_('block')
+        setTimeout(() => {
+            document.querySelector('#resultado').innerHTML = html
+            this._spinner_('none')
+        }, 3000)
+    }
+
+    _spinner_(set) {
+        const spinner = document.querySelector('.contenido-spinner')
+
+        spinner.style.display = set
+
     }
 }
