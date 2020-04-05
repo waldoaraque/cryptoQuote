@@ -48,6 +48,10 @@ class Interface {
                 <div class="card-body text-light">
                     <h2 class="card-title">Resultado:</h2>
                     <p>El precio de: ${dataCoin.FROMSYMBOL} a moneda ${dataCoin.TOSYMBOL} es de: ${dataCoin.PRICE.toFixed(2)}</p>
+
+                    <p> Variación último día: % ${dataCoin.CHANGEPCTDAY.toFixed(2)}</p>
+
+                    <p> Última fecha de actualización: ${new Date(dataCoin.LASTUPDATE * 1000).toLocaleDateString('es-es')}</p>
                 </div>
             </div>
         `
