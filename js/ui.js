@@ -42,5 +42,15 @@ class Interface {
 
     getResultsCoin(result, money, coin) {
         console.log(result[coin][money])
+        const dataCoin = result[coin][money]
+        let html = `
+            <div class="card bg-success">
+                <div class="card-body text-light">
+                    <h2 class="card-title">Resultado:</h2>
+                    <p>El precio de: ${dataCoin.FROMSYMBOL} a moneda ${dataCoin.TOSYMBOL} es de: ${dataCoin.PRICE.toFixed(2)}</p>
+                </div>
+            </div>
+        `
+        document.querySelector('#resultado').innerHTML = html
     }
 }
